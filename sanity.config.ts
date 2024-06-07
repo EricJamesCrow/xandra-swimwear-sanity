@@ -16,7 +16,7 @@ const devOnlyPlugins = [visionTool()]
 
 export default defineConfig({
   name: 'default',
-  title: 'Shopify - xandra-swimwear',
+  title: 'Xandra Swimwear',
 
   projectId: 'd8b2ohy4',
   dataset: 'production',
