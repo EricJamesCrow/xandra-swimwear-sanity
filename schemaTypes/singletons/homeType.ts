@@ -1,5 +1,5 @@
 import {HomeIcon} from '@sanity/icons'
-import {defineArrayMember, defineField} from 'sanity'
+import {defineField} from 'sanity'
 import {GROUPS} from '../../constants'
 
 const TITLE = 'Home'
