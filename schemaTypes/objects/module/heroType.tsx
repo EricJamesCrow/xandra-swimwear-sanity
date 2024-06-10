@@ -1,4 +1,4 @@
-import {defineArrayMember, defineField} from 'sanity'
+import {defineField} from 'sanity'
 
 export const heroType = defineField({
   name: 'hero',
@@ -17,24 +17,17 @@ export const heroType = defineField({
     }),
     defineField({
       name: 'link',
-      type: 'array',
-      of: [{type: 'linkInternal'}, {type: 'linkExternal'}],
-      validation: (Rule) => Rule.max(1),
+      type: 'linkInternal',
     }),
     defineField({
-      name: 'content',
+      name: 'media',
+      title: 'Image or Video',
       type: 'array',
-      validation: (Rule) => Rule.max(1),
       of: [
-        defineArrayMember({
-          name: 'productWithVariant',
-          type: 'productWithVariant',
-        }),
-        defineArrayMember({
-          name: 'imageWithProductHotspots',
-          type: 'imageWithProductHotspots',
-        }),
+        {type: 'image', title: 'Image'},
+        {type: 'file', title: 'Video', options: {accept: 'video/*'}},
       ],
+      validation: (Rule) => Rule.max(1),
     }),
   ],
 })
