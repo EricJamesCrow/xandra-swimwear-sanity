@@ -2,6 +2,7 @@ import {accordionGroupType} from './objects/module/accordionGroupType'
 import {accordionType} from './objects/module/accordionType'
 import {calloutType} from './objects/module/calloutType'
 import {callToActionType} from './objects/module/callToActionType'
+import {categoryType} from './objects/module/categoryType'
 import {collectionGroupType} from './objects/collection/collectionGroupType'
 import {collectionLinksType} from './objects/collection/collectionLinksType'
 import {collectionReferenceType} from './objects/module/collectionReferenceType'
@@ -11,6 +12,7 @@ import {customProductOptionColorType} from './objects/customProductOption/custom
 import {customProductOptionSizeObjectType} from './objects/customProductOption/customProductOptionSizeObjectType'
 import {customProductOptionSizeType} from './objects/customProductOption/customProductOptionSizeType'
 import {footerType} from './objects/global/footerType'
+import {featuredCollectionType} from './objects/module/featuredCollectionType'
 import {gridItemType} from './objects/module/gridItemType'
 import {gridType} from './objects/module/gridType'
 import {heroType} from './objects/module/heroType'
@@ -49,6 +51,7 @@ const objects = [
   accordionType,
   calloutType,
   callToActionType,
+  categoryType,
   collectionGroupType,
   collectionLinksType,
   collectionReferenceType,
@@ -57,6 +60,7 @@ const objects = [
   customProductOptionColorType,
   customProductOptionSizeObjectType,
   customProductOptionSizeType,
+  featuredCollectionType,
   footerType,
   gridItemType,
   gridType,
