@@ -64,7 +64,7 @@ export const shopifyProductType = defineField({
     defineField({
       name: 'id',
       title: 'ID',
-      type: 'number',
+      type: 'string',
       description: 'Shopify Product ID',
     }),
     defineField({
