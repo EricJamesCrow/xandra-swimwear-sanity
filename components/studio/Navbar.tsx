@@ -6,7 +6,6 @@ import ShopifyIcon from '../icons/Shopify'
 
 export default function Navbar(props: NavbarProps) {
   if (!SHOPIFY_STORE_ID) return props.renderDefault(props)
-
   return (
     <Card>
       <Flex align="center">
