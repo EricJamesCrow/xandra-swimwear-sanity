@@ -11,6 +11,10 @@ import {imageHotspotArrayPlugin} from 'sanity-plugin-hotspot-array'
 import {media, mediaAssetSource} from 'sanity-plugin-media'
 import {customDocumentActions} from './plugins/customDocumentActions'
 import Navbar from './components/studio/Navbar'
+const {theme} = (await import(
+  // @ts-expect-error -- TODO setup themer.d.ts to get correct typings
+  'https://themer.sanity.build/api/hues?preset=pink-synth'
+)) as {theme: import('sanity').StudioTheme}
 
 const devOnlyPlugins = [visionTool()]
 
@@ -20,6 +24,7 @@ export default defineConfig({
 
   projectId: 'd8b2ohy4',
   dataset: 'production',
+  theme: theme,
 
   plugins: [
     presentationTool({
