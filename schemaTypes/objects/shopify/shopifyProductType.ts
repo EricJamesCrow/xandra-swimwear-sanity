@@ -97,7 +97,8 @@ export const shopifyProductType = defineField({
     defineField({
       fieldset: 'organization',
       name: 'tags',
-      type: 'string',
+      type: 'array',
+      of: [{type: 'string'}],
     }),
     defineField({
       name: 'priceRange',
@@ -121,9 +122,20 @@ export const shopifyProductType = defineField({
       of: [
         defineArrayMember({
           title: 'Variant',
-          type: 'reference',
-          weak: true,
-          to: [{type: 'productVariant'}],
+          type: 'object',
+          fields: [
+            {name: 'id', type: 'string', title: 'ID'},
+            {name: 'compareAtPrice', type: 'number', title: 'Compare at Price'},
+            {name: 'inStock', type: 'boolean', title: 'In Stock'},
+            {name: 'inventoryManagement', type: 'string', title: 'Inventory Management'},
+            {name: 'inventoryPolicy', type: 'string', title: 'Inventory Policy'},
+            {name: 'option1', type: 'string', title: 'Option 1'},
+            {name: 'option2', type: 'string', title: 'Option 2'},
+            {name: 'option3', type: 'string', title: 'Option 3'},
+            {name: 'price', type: 'number', title: 'Price'},
+            {name: 'sku', type: 'string', title: 'SKU'},
+            {name: 'title', type: 'string', title: 'Title'},
+          ],
         }),
       ],
     }),

@@ -39,12 +39,6 @@ export const productType = defineType({
       options: {field: 'store.slug.current'},
     }),
     defineField({
-      name: 'colorTheme',
-      type: 'reference',
-      to: [{type: 'colorTheme'}],
-      group: 'editorial',
-    }),
-    defineField({
       name: 'body',
       type: 'portableText',
       group: 'editorial',
@@ -54,12 +48,6 @@ export const productType = defineType({
       type: 'shopifyProduct',
       description: 'Product data from Shopify (read-only)',
       group: 'shopifySync',
-    }),
-    defineField({
-      name: 'seo',
-      title: 'SEO',
-      type: 'seo',
-      group: 'seo',
     }),
   ],
   orderings: [

@@ -44,12 +44,12 @@ export const homeType = defineField({
       type: 'featured',
       group: 'editorial',
     }),
-    defineField({
-      name: 'seo',
-      title: 'SEO',
-      type: 'seo',
-      group: 'seo',
-    }),
+    // defineField({
+    //   name: 'seo',
+    //   title: 'SEO',
+    //   type: 'seo',
+    //   group: 'seo',
+    // }),
   ],
   preview: {
     prepare() {

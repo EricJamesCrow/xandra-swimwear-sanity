@@ -36,47 +36,47 @@ export const collectionType = defineType({
       type: 'proxyString',
       options: {field: 'store.slug.current'},
     }),
-    defineField({
-      name: 'colorTheme',
-      type: 'reference',
-      to: [{type: 'colorTheme'}],
-      group: 'theme',
-    }),
-    defineField({
-      name: 'vector',
-      title: 'Vector artwork',
-      type: 'image',
-      description: 'Displayed in collection links using color theme',
-      options: {
-        accept: 'image/svg+xml',
-      },
-      group: 'theme',
-      validation: (Rule) =>
-        Rule.custom((image) => {
-          if (!image?.asset?._ref) {
-            return true
-          }
+    // defineField({
+    //   name: 'colorTheme',
+    //   type: 'reference',
+    //   to: [{type: 'colorTheme'}],
+    //   group: 'theme',
+    // }),
+    // defineField({
+    //   name: 'vector',
+    //   title: 'Vector artwork',
+    //   type: 'image',
+    //   description: 'Displayed in collection links using color theme',
+    //   options: {
+    //     accept: 'image/svg+xml',
+    //   },
+    //   group: 'theme',
+    //   validation: (Rule) =>
+    //     Rule.custom((image) => {
+    //       if (!image?.asset?._ref) {
+    //         return true
+    //       }
 
-          const format = getExtension(image.asset._ref)
+    //       const format = getExtension(image.asset._ref)
 
-          if (format !== 'svg') {
-            return 'Image must be an SVG'
-          }
-          return true
-        }),
-    }),
-    defineField({
-      name: 'modules',
-      type: 'array',
-      description: 'Editorial modules to associate with this collection',
-      of: [
-        defineArrayMember({type: 'callout'}),
-        defineArrayMember({type: 'callToAction'}),
-        defineArrayMember({type: 'image'}),
-        defineArrayMember({type: 'instagram'}),
-      ],
-      group: 'editorial',
-    }),
+    //       if (format !== 'svg') {
+    //         return 'Image must be an SVG'
+    //       }
+    //       return true
+    //     }),
+    // }),
+    // defineField({
+    //   name: 'modules',
+    //   type: 'array',
+    //   description: 'Editorial modules to associate with this collection',
+    //   of: [
+    //     defineArrayMember({type: 'callout'}),
+    //     defineArrayMember({type: 'callToAction'}),
+    //     defineArrayMember({type: 'image'}),
+    //     defineArrayMember({type: 'instagram'}),
+    //   ],
+    //   group: 'editorial',
+    // }),
     defineField({
       name: 'store',
       title: 'Shopify',
@@ -84,12 +84,12 @@ export const collectionType = defineType({
       description: 'Collection data from Shopify (read-only)',
       group: 'shopifySync',
     }),
-    defineField({
-      name: 'seo',
-      title: 'SEO',
-      type: 'seo',
-      group: 'seo',
-    }),
+    // defineField({
+    //   name: 'seo',
+    //   title: 'SEO',
+    //   type: 'seo',
+    //   group: 'seo',
+    // }),
   ],
   orderings: [
     {
