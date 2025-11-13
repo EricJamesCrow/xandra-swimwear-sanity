@@ -1,85 +1,121 @@
-# Sanity Studio for Shopify Projects
+# Xandra Swimwear - Sanity CMS Backend
 
-<img width="1072" alt="Sanity Studio with Shopify products" src="https://github.com/sanity-io/learn/assets/9684022/13aed6ff-a028-4c3f-bc4b-15bf9ba4c6ff">
+Headless CMS backend built with Sanity Studio to power content management for the Xandra Swimwear e-commerce storefront. Provides a custom content authoring experience for marketing pages, editorial content, and product enrichment.
 
-## About
+**Tech Stack:** Sanity Studio • TypeScript • React • Structured Content
 
-This Sanity Studio is configured for headless Shopify projects that use the official [Sanity Connect app][sanity-shopify], allowing you to extend Shopify products and collections with your own rich editorial content.
+**Related:** [Xandra Swimwear Hydrogen Frontend](https://github.com/EricJamesCrow/xandra-swimwear-hydrogen)
 
-It contains examples of customizing your [structure][docs-structure], [document actions][docs-document-actions] and [input components][docs-input-components].
+---
 
-This studio can be used with any front end, or anywhere else you want your e-commerce content to go.
+## Project Overview
 
-## Features
+While Shopify handled core product data and e-commerce functionality, Xandra needed flexible content management for editorial pages, brand storytelling, and seasonal campaigns. This Sanity implementation provided a custom Studio interface for non-technical content editors.
 
-This studio comes configured with Shopify-friendly content schema types and a whole host of customizations to make managing Shopify data in your Sanity studio easier.
+### Key Features
 
-It also comes with several convenient layout modules which can be re-used across various pages.
+- **Custom Content Models** - Structured schemas for landing pages, lookbooks, editorial content, and brand storytelling
+- **Rich Media Management** - Image galleries, video embeds, and asset organization for seasonal campaigns
+- **Preview Integration** - Real-time content preview integrated with the Hydrogen storefront
+- **Portable Text** - Flexible rich text editing for editorial content with custom components
 
-**[View studio features][studio-features]**
+### Content Architecture
 
-## Assumptions
+**Separation of Concerns** - Product data lives in Shopify; marketing content, editorial pages, and brand storytelling managed in Sanity
 
-No two custom storefronts are the same, and we've taken a few strong opinions on how we've approached this studio.
+**Reusable Components** - Modular content blocks (hero sections, product spotlights, testimonials) that editors can compose into pages
 
-- Synced Shopify data for `collection`, `product` and `productVariant` documents are stored in a read-only object, `store`
-- Shopify is the source of truth for both product titles, slugs (handles) and thumbnail images
-- Shopify is the source of truth for collections
-- Sanity is used as an additional presentational layer to add custom metadata to both Shopify collections and products
-  - For products: this includes a portable text field with support for editorial modules
-  - For collections: this includes a customizable array of editorial modules
-- Some images (such as product and cart line item thumbnails) are served by Shopify's CDN whilst other images (such as those served in editorial modules) are handled by Sanity's Image API
-- We only concern ourselves with incoming data from Shopify _collections_, _products_ and _product variants_
+**Type-Safe Integration** - Generated TypeScript types from Sanity schemas ensure type safety across the Hydrogen frontend
 
-We believe these rules work well for simpler use cases, and keeping product titles, images and slugs handled by Shopify helps keep content consistent as you navigate from your product views to the cart and ultimately checkout. Managing collections in Shopify gives you the flexibility to take full advantage of manual and automated collections.
+**Version Control** - Content versioning and draft/publish workflows for campaign coordination
 
-You may have differing opinions on how content best be modeled to fit your particular needs – this is normal and encouraged! Fortunately, Sanity was built with this flexibility in mind, and we've written [a guide on structured content patterns of e-commerce][structured-content-patterns] which may help inform how to tackle this challenge.
+### Content Models
 
-## Setup
-
-If you're reading this on GitHub, chances are you haven't initialized the studio locally yet. To do so, run the following shell command:
-
-```sh
-# run a one-off initializing script:
-npx @sanity/cli init --template shopify
+```typescript
+// Example schema structure
+- Pages (Landing, About, Size Guide)
+- Collections (Seasonal Lookbooks, Editorial)
+- Modules (Hero, Product Grid, Testimonials, Gallery)
+- Settings (Site metadata, navigation, footer)
+- Media (Image assets with metadata)
 ```
 
-Make sure to run the tagged release! (`@sanity/cli`)
+### Studio Customization
+
+**Custom Input Components** - Purpose-built editing interfaces for swimwear-specific content (size charts, fabric details, care instructions)
+
+**Image Hotspot Support** - Focal point selection for responsive image cropping across devices
+
+**Editorial Workflow** - Draft/publish states with scheduling for seasonal content releases
+
+**Asset Organization** - Tagging and categorization system for managing large media libraries
+
+---
+
+## Technical Implementation
+
+**TypeScript Throughout** - Fully typed schemas and content models for development safety
+
+**GROQ Queries** - Optimized content fetching from Hydrogen frontend using Sanity's query language
+
+**Real-Time Updates** - Webhook integration triggers Hydrogen rebuilds on content changes
+
+**Image Pipeline** - Sanity's image CDN integration for automatic optimization and transformation
+
+---
+
+## Headless Architecture Benefits
+
+This Sanity + Shopify + Hydrogen stack provided:
+
+**Content Flexibility** - Marketing team controls storytelling without developer intervention
+
+**Performance** - Content fetched server-side in Hydrogen, cached at edge
+
+**Developer Experience** - Type-safe content integration with autocomplete in IDE
+
+**Scalability** - Separate scaling concerns for content vs. commerce infrastructure
+
+---
+
+## Project Status
+
+This was the content management layer for the Xandra Swimwear client project delivered in 2024. While no longer in production use, it demonstrates best practices for headless CMS architecture in e-commerce contexts.
+
+The code showcases:
+- ✅ Custom Sanity Studio configuration
+- ✅ E-commerce content modeling patterns
+- ✅ Type-safe schema definitions
+- ✅ Integration architecture with Hydrogen frontend
+
+---
 
 ## Local Development
 
-### Starting development server
+```bash
+# Install dependencies
+npm install
 
-```sh
+# Start Sanity Studio
 npm run dev
-```
 
-### Deploying the studio
-
-```sh
+# Deploy Studio
 npm run deploy
 ```
 
-### Upgrading Sanity Studio
+**Note:** Requires Sanity project ID and dataset configuration. See Sanity documentation for setup.
 
-```sh
-npm run upgrade
-```
+---
 
-If you have the [Sanity CLI][docs-cli] installed, you can also run this with `sanity start|deploy|upgrade`. It comes with additional useful functionality.
+## Why Sanity for E-Commerce Content?
 
-## License
+Chose Sanity over traditional CMS solutions for:
+- **Content Modeling Flexibility** - Custom schemas for fashion-specific content types
+- **Developer Experience** - React-based Studio, TypeScript support, modern tooling
+- **API Performance** - Fast CDN-backed queries with GROQ
+- **Image Handling** - Best-in-class image transformation and optimization
+- **Separation of Concerns** - Product commerce in Shopify, marketing content in Sanity
 
-This repository is published under the [MIT](license) license.
+---
 
-[docs-cli]: https://www.sanity.io/docs/cli
-[docs-custom-input-components]: https://www.sanity.io/docs/custom-input-components
-[docs-structure]: https://www.sanity.io/docs/structure-builder
-[docs-document-actions]: https://www.sanity.io/docs/document-actions
-[docs-input-components]: https://www.sanity.io/docs/custom-input-widgets
-[docs-string-input]: https://www.sanity.io/docs/string-type
-[hydrogen-demo]: https://github.com/sanity-io/hydrogen-sanity-demo
-[license]: https://github.com/sanity-io/sanity/blob/next/LICENSE
-[sanity-shopify]: https://apps.shopify.com/sanity-connect
-[structured-content-patterns]: https://www.sanity.io/guides/structured-content-patterns-for-e-commerce
-[studio-features]: docs/features.md
+*Built by Eric as part of the Xandra Swimwear headless e-commerce solution, demonstrating modern CMS architecture and content modeling.*
